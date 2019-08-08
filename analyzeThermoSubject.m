@@ -2,7 +2,7 @@ clear all; close all; clc
 addpath(genpath('/Users/jacekdmochowski/PROJECTS/COMMON'));
 
 %% PARAMETERS
-subjStr='tS03b';
+subjStr='tS01a';
 nPCs=3;
 
 nTRs=150;
@@ -26,8 +26,8 @@ delrad=8*pi/(2^16-1); %
 gmIndex=2; 
 nX=64; nY=64; nZ=32; % dimensions of mag/ph
 dummyMask=true(nX,nY,nZ); % used for going from 2D to 4D
-slope=8*pi/2^16;
-intercept=-4*pi;
+slope=8*pi/2^16; % no longer used
+intercept=-4*pi; % no longer used
 
 pathToData=['../data/thermo/output/' subjStr '/'];
 pathToScannerData=['../data/thermo/scanner_data/' subjStr '/'];

@@ -7,9 +7,7 @@
 %% 08.05.19
 % adding smoothing to 8 mm FWHM
 clear all; close all; clc
-%% DUKE: you can grab this repo from my github (jd-lab/common)
-addpath(genpath('/Users/jacekdmochowski/PROJECTS/COMMON')); 
-%% DUKE: point this to your afni path
+addpath(genpath('/Users/jacekdmochowski/PROJECTS/COMMON')); %% DUKE EDIT 
 !export PATH=$PATH:/Users/jacekdmochowski/abin
 PATH = getenv('PATH');
 setenv('PATH', [PATH ':/Users/jacekdmochowski/abin']);
