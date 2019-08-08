@@ -1,0 +1,25 @@
+
+     afni_proc.py -subj_id S23              \
+                  -blocks tshift align tlrc volreg mask combine \
+                          blur scale regress                    \
+                  -copy_anat anat+orig                       \
+                  -dsets_me_run bold_e*.nii              \
+                  -echo_times 13 34 55                        \
+                  -reg_echo 2                                   \
+                  -tcat_remove_first_trs 2                      \
+                  -align_opts_aea -cost lpc+ZZ                  \
+                  -tlrc_base TT_N27+tlrc               \
+                  -tlrc_NL_warp                                 \
+                  -volreg_align_to MIN_OUTLIER                  \
+                  -volreg_align_e2a                             \
+                  -volreg_tlrc_warp                             \
+                  -mask_epi_anat yes                            \
+                  -combine_method tedana                        \
+                  -blur_in_mask yes                             \
+                  -regress_motion_per_run                       \
+                  -regress_censor_motion 0.2                    \
+                  -regress_censor_outliers 0.05                 \
+                  -regress_apply_mot_types demean deriv         \
+                  -regress_est_blur_epits  \
+		  -anat_follower_ROI LASER epi roi_r21_z39+orig \	
+		  -mask_segment_anat yes

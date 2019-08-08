@@ -1,0 +1,77 @@
+      #!/bin/tcsh
+
+       # --------------------------------------------------
+       # note fixed top-level directories
+       set data_root = /Users/jacekdmochowski/PROJECTS/LLLT/data
+
+       set input_root = $data_root/scanner_data
+       set output_root = $data_root/output
+
+       # --------------------------------------------------
+       # get a list of subjects, or just use one (consider $argv)
+       cd $input_root
+       set subjects = ( S02 )
+       cd -
+
+       # or perhaps just process one subject?
+       #set subjects = ( S24)
+
+
+       # --------------------------------------------------
+       # process all subjects
+       foreach subj_id ( $subjects )
+
+          # --------------------------------------------------
+          # note input and output directories
+          set subj_indir = $input_root/$subj_id
+          set subj_outdir = $output_root/$subj_id
+
+          # --------------------------------------------------
+          # if output dir exists, this subject has already been processed
+          if ( -d $subj_outdir ) then
+             echo "** results dir already exists, skipping subject $subj_id"
+             continue
+          endif
+
+          # --------------------------------------------------
+          # otherwise create the output directory, write an afni_proc.py
+          # command to it, and fire it up
+
+          mkdir -p $subj_outdir
+          cd $subj_outdir
+
+          # create a run.afni_proc script in this directory
+          cat >run.afni_proc <<EOF
+	     afni_proc.py -subj_id $subj_id             \
+                  -blocks tshift align tlrc volreg mask combine \
+                          blur scale regress                    \
+                  -copy_anat $subj_indir/anat+orig                       \
+                  -dsets_me_run $subj_indir/bold_e*.nii              \
+                  -echo_times 13 34 55                        \
+                  -reg_echo 2                                   \
+                  -tcat_remove_first_trs 2                      \
+                  -align_opts_aea -cost lpc+ZZ                  \
+                  -tlrc_base TT_N27+tlrc               \
+                  -tlrc_NL_warp                                 \
+                  -volreg_align_to MIN_OUTLIER                  \
+                  -volreg_align_e2a                             \
+                  -volreg_tlrc_warp                             \
+                  -mask_epi_anat yes                            \
+                  -combine_method tedana                        \
+                  -blur_in_mask yes                             \
+                  -regress_motion_per_run                       \
+                  -regress_censor_motion 0.2                    \
+                  -regress_censor_outliers 0.05                 \
+                  -regress_apply_mot_types demean deriv         \
+                  -regress_est_blur_epits  \
+		  -anat_follower_ROI LASER epi roi_r21_z39+orig \	
+		  -mask_segment_anat yes  \
+		  -execute
+		  EOF
+	# EOF denotes the end of the run.afni_proc command
+
+          # now run the analysis (generate proc and execute)
+          tcsh run.afni_proc
+
+       # end loop over subjects
+       end

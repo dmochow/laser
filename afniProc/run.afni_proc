@@ -1,0 +1,4 @@
+/-volreg_align_to MIN_OUTLIER            
+ -volreg_align_e2a                             \
+
+     -regress_censor_outliers 0.05                 \

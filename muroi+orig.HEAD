@@ -1,0 +1,109 @@
+
+type = integer-attribute
+name = DATASET_RANK
+count = 8
+	3	1	0	0	0
+	0	0	0	
+
+type = integer-attribute
+name = BRICK_TYPES
+count = 1
+	0	
+
+type = string-attribute
+name = BYTEORDER_STRING
+count = 10
+'LSB_FIRST~
+
+type = integer-attribute
+name = ORIENT_SPECIFIC
+count = 3
+	0	3	4	
+
+type = float-attribute
+name = ORIGIN
+count = 3
+	-78.75	-78.75	-63.75	
+
+type = float-attribute
+name = DELTA
+count = 3
+	2.5	2.5	2.5	
+
+type = string-attribute
+name = BRICK_LABS
+count = 3
+'#0~
+
+type = integer-attribute
+name = SCENE_DATA
+count = 8
+	2	0	1	-999	-999
+	-999	-999	-999	
+
+type = string-attribute
+name = TYPESTRING
+count = 15
+'3DIM_HEAD_FUNC~
+
+type = string-attribute
+name = IDCODE_DATE
+count = 21
+'06-Mar-2018 18:04:49~
+
+type = string-attribute
+name = HISTORY_NOTE
+count = 1842
+'[jacekdmochowski@Jaceks-MBP-2.fios-router.home: Tue Feb 27 16:01:24 2018] {AFNI_17.3.03:macosx_10.7_local} 3dSkullStrip -input anat.nii\n[jacekdmochowski@Jaceks-MBP-2.fios-router.home: Tue Feb 27 16:02:41 2018] {AFNI_17.3.03:macosx_10.7_local} 3dAutomask -prefix brain_mask skull_strip_out+orig\n[jacekdmochowski@Jaceks-MBP-2.fios-router.home: 27-Feb-2018 16:09:26]\n\t/Users/jacekdmochowski/PROJECTS/LLLT/data/S13/NII\n\tmakeRoiMask2(ln119)->WriteBrik(ln551)\n[jacekdmochowski@Jaceks-MBP-2.fios-router.home: Tue Feb 27 16:13:32 2018] {AFNI_17.3.03:macosx_10.7_local} 3dZeropad -I 40 -S 40 -A 40 -P 40 -L 40 -R 40 -mm -prefix ./__ats_tmp__ipad roi+orig\n[jacekdmochowski@Jaceks-MBP-2.fios-router.home: Tue Feb 27 16:13:40 2018] {AFNI_17.3.03:macosx_10.7_local} 3dWarp -matparent ./anat+tlrc -prefix ./__ats_tmp_roi -quintic __ats_tmp__ipad+orig\n[jacekdmochowski@Jaceks-MBP-2.fios-router.home: Tue Feb 27 16:13:41 2018] {AFNI_17.3.03:macosx_10.7_local} 3dresample -master __ats_tmp__warp_grid+orig -prefix ./__ats_tmp_roi -inset __ats_tmp_roi+orig -rmode Bk\n[jacekdmochowski@Jaceks-MBP-2.fios-router.home: Tue Feb 27 16:13:41 2018] {AFNI_17.3.03:macosx_10.7_local} 3drefit -space TT_N27 __ats_tmp_roi+orig\n[jacekdmochowski@Jaceks-MBP-2.fios-router.home: Tue Feb 27 16:13:41 2018] Dataset created via: @auto_tlrc -apar anat+tlrc -input roi+orig\n[jacekdmochowski@Jaceks-MBP-2.fios-router.home: Tue Feb 27 16:13:41 2018] {AFNI_17.3.03:macosx_10.7_local} 3drefit -view +tlrc __ats_tmp_roi+orig.HEAD\n[jacekdmochowski@Jaceks-MBP-2.fios-router.home: Tue Feb 27 16:27:23 2018] {AFNI_17.3.03:macosx_10.7_local} 3dresample -master bold_e2_tlrc_al+tlrc -prefix resampled_roi -input roi+tlrc\n[jacekdmochowski@Jaceks-MBP-2.fios-router.home: 06-Mar-2018 18:04:49]\n\t/Users/jacekdmochowski/PROJECTS/LLLT/code\n\tmakeAverageROI(ln54)->WriteBrik(ln551)~
+
+type = float-attribute
+name = IJK_TO_DICOM_REAL
+count = 12
+	2.5	0	0	-78.75	0
+	2.5	0	-78.75	0	0
+	2.5	-63.75	
+
+type = string-attribute
+name = LABEL_1
+count = 5
+'zyxt~
+
+type = string-attribute
+name = LABEL_2
+count = 5
+'zyxt~
+
+type = string-attribute
+name = DATASET_NAME
+count = 5
+'zyxt~
+
+type = string-attribute
+name = FileFormat
+count = 5
+'BRIK~
+
+type = string-attribute
+name = Extension_1D
+count = 1
+'~
+
+type = integer-attribute
+name = DATASET_DIMENSIONS
+count = 5
+	64	76	60	0	0
+
+type = float-attribute
+name = BRICK_FLOAT_FACS
+count = 1
+	0	
+
+type = float-attribute
+name = BRICK_STATS
+count = 2
+	0	1	
+
+type = string-attribute
+name = GEN_SOURCE
+count = 83
+'WriteBrik matlab library functions V2.0 (please report bugs to saadz@mail.nih.gov)~

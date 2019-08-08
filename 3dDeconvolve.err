@@ -1,0 +1,3 @@
+*+ WARNING: no -stim_label given for stim #1 ==> label = 'Stim#1'
+*+ WARNING: no -stim_label given for stim #2 ==> label = 'Stim#2'
+*+ WARNING: !! stimulus filename #1:'1D: 10 150' same as #2:'1D: 10 150'

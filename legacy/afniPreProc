@@ -1,0 +1,3 @@
+
+# estimate motion correction parameters by aligning middle TE images to corresponding (i.e., middle TE) first time point 
+3dvolreg -prefix mc -base ‘bold_e2.nii[1]' -1Dmatrix_save mc_func bold_e2.nii
